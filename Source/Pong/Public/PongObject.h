@@ -13,12 +13,13 @@ class PONG_API APongObject : public APawn
 
 private:
     float time;
+    FVector position;
+    FVector prevVelocity;
     FVector prevNetForce;
     FVector netForce;
     
     UPROPERTY(EditAnywhere) float inverseMass;
     UPROPERTY(EditAnywhere) float damping;
-    UPROPERTY(EditAnywhere) FVector position;
     UPROPERTY(EditAnywhere) FVector velocity;
 
     UPROPERTY(EditAnywhere)

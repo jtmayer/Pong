@@ -5,13 +5,18 @@
 
 void APongObject::integrate(float deltaTime)
 {
-    if (netForce != prevNetForce)
+    if (netForce != prevNetForce || velocity != prevVelocity)
     {
-	position += ((velocity * time) +
+	position += ((prevVelocity * time) +
 		     (0.5 * prevNetForce * inverseMass * time * time));
-	velocity = ((velocity +
-		    (prevNetForce * inverseMass * time)) *
-		    damping);
+
+	if (velocity == prevVelocity)
+	{
+	    velocity = ((prevVelocity +
+			 (prevNetForce * inverseMass * time)) *
+			damping);
+	}
+	
 	time = 0;
     }
 
@@ -20,6 +25,7 @@ void APongObject::integrate(float deltaTime)
 		     (velocity * time) +
 		     (0.5 * netForce * inverseMass * time * time),
 		     true);
+    prevVelocity = velocity;
     prevNetForce = netForce;
     clearNetForce();
 }
@@ -44,7 +50,7 @@ APongObject::APongObject()
 void APongObject::BeginPlay()
 {
     Super::BeginPlay();	
-    SetActorLocation(position);
+    position = GetActorLocation();
 }
 
 // Called every frame
