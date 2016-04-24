@@ -20,7 +20,15 @@ AWindow::AWindow()
 void AWindow::BeginPlay()
 {
     Super::BeginPlay();
-	
+
+    SetActorLocationAndRotation(FVector(0,0,0),
+				FQuat(0,
+				      0,
+				      -0.70710678118654752440084436210484903928483593768847403658,
+				      0.707106781186547524400844362104849039284835937688474036588),
+				false,
+				nullptr,
+				ETeleportType::None);
 }
 
 // Called every frame

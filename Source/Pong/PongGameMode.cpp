@@ -2,10 +2,10 @@
 
 #include "Pong.h"
 #include "PongGameMode.h"
-#include "PongCharacter.h"
+#include "Window.h"
 
 APongGameMode::APongGameMode()
 {
     // set default pawn class to our character
-    DefaultPawnClass = APongCharacter::StaticClass();	
+    DefaultPawnClass = AWindow::StaticClass();	
 }

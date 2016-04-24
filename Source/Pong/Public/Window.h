@@ -2,11 +2,11 @@
 
 #pragma once
 
-#include "GameFramework/Actor.h"
+#include "GameFramework/Pawn.h"
 #include "Window.generated.h"
 
 UCLASS()
-class AWindow : public AActor
+class AWindow : public APawn
 {
     GENERATED_BODY()
 
