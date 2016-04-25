@@ -5,6 +5,15 @@
 #include "PongObject.h"
 #include "Ball.generated.h"
 
+namespace EBoundaryFlags
+{
+    enum BoundaryFlags
+    {
+	OUT_OF_VERTICAL_BOUNDS = 0x01,
+	OUT_OF_HORIZONTAL_BOUNDS = 0x02
+    };
+};
+
 /**
  * 
  */
@@ -14,6 +23,7 @@ class ABall : public APongObject
     GENERATED_BODY()
     
 private:
+    uint32 boundaryFlags;
 
 public:
     ABall();

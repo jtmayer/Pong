@@ -3,7 +3,10 @@
 #include "Pong.h"
 #include "Ball.h"
 
-ABall::ABall(): APongObject() {}
+ABall::ABall(): APongObject()
+{
+    boundaryFlags = 0;;
+}
 
 // Called when the game starts or when spawned
 void ABall::BeginPlay()
@@ -14,6 +17,31 @@ void ABall::BeginPlay()
 // Called every frame
 void ABall::Tick( float DeltaTime )
 {
+    if (false)
+    {
+	if ((boundaryFlags & EBoundaryFlags::OUT_OF_VERTICAL_BOUNDS) == 0)
+	{
+	    addImpulse(FVector());
+	}
+
+	boundaryFlags |= EBoundaryFlags::OUT_OF_VERTICAL_BOUNDS;
+    }
+
+    else if (false)
+    {
+	if ((boundaryFlags & EBoundaryFlags::OUT_OF_HORIZONTAL_BOUNDS) == 0)
+	{
+	    addImpulse(FVector());
+	}
+
+	boundaryFlags |= EBoundaryFlags::OUT_OF_HORIZONTAL_BOUNDS;
+    }
+
+    else
+    {
+        boundaryFlags = 0;
+    }
+
     Super::Tick( DeltaTime );
 }
 
