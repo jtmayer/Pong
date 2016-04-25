@@ -17,6 +17,7 @@ private:
     FVector prevVelocity;
     FVector prevNetForce;
     FVector netForce;
+    FVector netImpulse;
     
     UPROPERTY(EditAnywhere) float inverseMass;
     UPROPERTY(EditAnywhere) float damping;
@@ -42,6 +43,5 @@ public:
     
     void addForce(const FVector& force);
 
-    void clearNetForce();
-    
+    void addImpulse(const FVector& impulse);
 };

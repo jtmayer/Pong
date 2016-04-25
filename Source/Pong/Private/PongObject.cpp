@@ -5,19 +5,22 @@
 
 void APongObject::integrate(float deltaTime)
 {
-    if (netForce != prevNetForce || velocity != prevVelocity)
+    if (netForce != prevNetForce ||
+	velocity != prevVelocity ||
+	netImpulse != FVector())
     {
 	position += ((prevVelocity * time) +
 		     (0.5 * prevNetForce * inverseMass * time * time));
 
 	if (velocity == prevVelocity)
 	{
-	    velocity = ((prevVelocity +
-			 (prevNetForce * inverseMass * time)) *
-			damping);
+	    velocity = (prevVelocity +
+			prevNetForce * inverseMass * time * damping +
+			netImpulse * inverseMass);
 	}
 	
 	time = 0;
+	netImpulse = FVector();
     }
 
     time += deltaTime;
@@ -25,9 +28,11 @@ void APongObject::integrate(float deltaTime)
 		     (velocity * time) +
 		     (0.5 * netForce * inverseMass * time * time),
 		     true);
+
     prevVelocity = velocity;
     prevNetForce = netForce;
-    clearNetForce();
+
+    netForce = FVector();
 }
 
 // Sets default values
@@ -40,9 +45,15 @@ APongObject::APongObject()
     time = 0;
     inverseMass = 0;
     damping = 0.99;
+
+    prevVelocity = FVector();
     velocity = FVector();
+
     prevNetForce = FVector();
     netForce = FVector();
+
+    netImpulse = FVector();
+
     Sprite = CreateDefaultSubobject<UPaperFlipbookComponent>(TEXT("Sprite"));
 }
 
@@ -71,7 +82,7 @@ void APongObject::addForce(const FVector& force)
     netForce += force;
 }
 
-void APongObject::clearNetForce()
+void APongObject::addImpulse(const FVector& impulse)
 {
-    netForce = FVector();
+    netImpulse += impulse;
 }
