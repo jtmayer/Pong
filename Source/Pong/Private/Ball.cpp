@@ -5,7 +5,7 @@
 
 ABall::ABall(): APongObject()
 {
-    boundaryFlags = 0;;
+    boundaryFlags = 0;
 }
 
 // Called when the game starts or when spawned

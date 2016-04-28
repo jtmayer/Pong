@@ -9,7 +9,7 @@ void APongObject::integrate(float deltaTime)
 	velocity != prevVelocity ||
 	netImpulse != FVector())
     {
-	position += ((prevVelocity * time) +
+	position += (((prevVelocity + (netImpulse * inverseMass)) * time) +
 		     (0.5 * prevNetForce * inverseMass * time * time));
 
 	if (velocity == prevVelocity)
