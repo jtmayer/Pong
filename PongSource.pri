@@ -450,6 +450,7 @@ SOURCES += \
 	"$$unrealRootPath/Engine/Source/Developer/StandaloneRenderer/Private/ios/SlateOpenGLViewport.cpp" \
 	"$$unrealRootPath/Engine/Source/Developer/SuperSearch/Private/SSuperSearch.cpp" \
 	"$$unrealRootPath/Engine/Source/Developer/SuperSearch/Private/SuperSearchModule.cpp" \
+	"$$unrealRootPath/Engine/Source/Developer/SuperSearch/Private/SuperSearchSettings.cpp" \
 	"$$unrealRootPath/Engine/Source/Developer/TargetDeviceServices/Private/TargetDeviceProxy.cpp" \
 	"$$unrealRootPath/Engine/Source/Developer/TargetDeviceServices/Private/TargetDeviceProxyManager.cpp" \
 	"$$unrealRootPath/Engine/Source/Developer/TargetDeviceServices/Private/TargetDeviceService.cpp" \
@@ -3902,6 +3903,7 @@ SOURCES += \
 	"$$unrealRootPath/Engine/Source/Runtime/HeadMountedDisplay/Private/HeadMountedDisplayModule.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/HeadMountedDisplay/Private/HeadMountedDisplayTypes.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/HeadMountedDisplay/Private/MotionControllerComponent.cpp" \
+	"$$unrealRootPath/Engine/Source/Runtime/HeadMountedDisplay/Private/VRNotificationsComponent.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/IOS/IOSAudio/Private/IOSAudioBuffer.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/IOS/IOSAudio/Private/IOSAudioDevice.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/IOS/IOSAudio/Private/IOSAudioSession.cpp" \
@@ -4202,16 +4204,14 @@ SOURCES += \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/HttpTests.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/NullHttp.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Android/AndroidHttp.cpp" \
+	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Apple/AppleHTTP.cpp" \
+	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Apple/ApplePlatformHttp.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Curl/CurlHttp.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Curl/CurlHttpManager.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/GenericPlatform/GenericPlatformHttp.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/HTML5/HTML5HTTP.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/HTML5/HTML5PlatformHttp.cpp" \
-	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/IOS/IOSHTTP.cpp" \
-	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/IOS/IOSPlatformHttp.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Linux/LinuxPlatformHttp.cpp" \
-	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Mac/MacHTTP.cpp" \
-	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Mac/MacPlatformHttp.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/WinRT/WinRTHttp.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Windows/HttpWinInet.cpp" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Windows/WindowsPlatformHttp.cpp" \
@@ -5231,8 +5231,6 @@ SOURCES += \
 	"$$unrealRootPath/Engine/Plugins/Developer/PerforceSourceControl/Source/PerforceSourceControl/Private/PerforceSourceControlSettings.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Developer/PerforceSourceControl/Source/PerforceSourceControl/Private/PerforceSourceControlState.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Developer/PerforceSourceControl/Source/PerforceSourceControl/Private/SPerforceSourceControlSettings.cpp" \
-	"$$unrealRootPath/Engine/Plugins/Developer/SensibleEditorSourceCodeAccess/Source/SensibleEditorSourceCodeAccess/Private/SensibleEditorSourceCodeAccessModule.cpp" \
-	"$$unrealRootPath/Engine/Plugins/Developer/SensibleEditorSourceCodeAccess/Source/SensibleEditorSourceCodeAccess/Private/SensibleEditorSourceCodeAccessor.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Developer/SubversionSourceControl/Source/SubversionSourceControl/Private/SSubversionSourceControlSettings.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Developer/SubversionSourceControl/Source/SubversionSourceControl/Private/SubversionSourceControlCommand.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Developer/SubversionSourceControl/Source/SubversionSourceControl/Private/SubversionSourceControlLabel.cpp" \
@@ -5497,14 +5495,35 @@ SOURCES += \
 	"$$unrealRootPath/Engine/Plugins/Runtime/GearVR/Source/GearVR/Private/GearVR.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/GearVR/Source/GearVR/Private/GearVRRender.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/IOSDeviceProfileSelector/Source/IOSDeviceProfileSelector/Private/IOSDeviceProfileSelectorModule.cpp" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Private/LeapMotionBoneActor.cpp" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Private/LeapMotionControllerActor.cpp" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Private/LeapMotionControllerComponent.cpp" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Private/LeapMotionControllerPlugin.cpp" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Private/LeapMotionDevice.cpp" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Private/LeapMotionFunctionLibrary.cpp" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Private/LeapMotionHandActor.cpp" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Private/LeapMotionImageComponent.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/FLeapMotion.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapArm.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapBaseObject.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapBone.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapCircleGesture.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapController.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapEventInterface.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapFinger.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapFingerList.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapFrame.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapGesture.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapGestureList.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapHand.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapHandList.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapImage.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapImageList.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapInteractionBox.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapInterfaceUtility.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapKeyTapGesture.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapPointable.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapPointableList.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapScreenTapGesture.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapSwipeGesture.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapTool.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapToolList.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/AnimBody/AnimBody.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/AnimBody/AnimBone.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/AnimBody/AnimFinger.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/AnimBody/AnimHand.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/LinuxDeviceProfileSelector/Source/LinuxDeviceProfileSelector/Private/LinuxDeviceProfileSelectorModule.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/LiveEditorListenServer/Source/LiveEditorListenServer/Private/LiveEditorListenServer.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/LiveEditorListenServer/Source/LiveEditorListenServer/Private/LiveEditorListenServerEngineHooks.cpp" \
@@ -5518,11 +5537,14 @@ SOURCES += \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusLibrary/Source/OculusLibrary/Private/OculusFunctionLibrary.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusLibrary/Source/OculusLibrary/Private/OculusFunctionLibraryPlugin.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftCAPI.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftCommon.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftHMD.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftLayers.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftRender.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftRenderD3D.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftRenderD3D12.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftRenderGL.cpp" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftSplash.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/Tests/OculusAutomationTests.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/PacketHandlers/CompressionComponents/Oodle/Source/OodleHandlerComponent/Private/OodleArchives.cpp" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/PacketHandlers/CompressionComponents/Oodle/Source/OodleHandlerComponent/Private/OodleHandlerComponent.cpp" \
@@ -5577,5 +5599,7 @@ SOURCES += \
 	"$$PongRootPath/Source/Pong/PongGameMode.cpp" \
 	"$$PongRootPath/Source/Pong/Private/Ball.cpp" \
 	"$$PongRootPath/Source/Pong/Private/PongObject.cpp" \
+	"$$PongRootPath/Source/Pong/Private/PongObjectContact.cpp" \
+	"$$PongRootPath/Source/Pong/Private/Window.cpp" \
  
 

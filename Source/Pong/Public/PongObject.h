@@ -16,15 +16,12 @@ private:
     FVector position;
     FVector prevVelocity;
     FVector prevNetForce;
-    FVector netForce;
-    FVector netImpulse;
     
     UPROPERTY(EditAnywhere) float inverseMass;
-    UPROPERTY(EditAnywhere) float damping;
     UPROPERTY(EditAnywhere) FVector velocity;
-
-    UPROPERTY(EditAnywhere)
-    UPaperFlipbookComponent* Sprite;
+    UPROPERTY(VisibleAnywhere) FVector netForce;
+    UPROPERTY(VisibleAnywhere) FVector netImpulse;
+    UPROPERTY(EditAnywhere) UPaperFlipbookComponent* sprite;
 
     void integrate(float deltaTime);    
 	
@@ -40,6 +37,10 @@ public:
     
     // Called to bind functionality to input
     virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
+
+    float getInverseMass() const;
+
+    FVector getVelocity() const;
     
     void addForce(const FVector& force);
 

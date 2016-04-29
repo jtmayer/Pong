@@ -21,7 +21,7 @@ void ABall::Tick( float DeltaTime )
     {
 	if ((boundaryFlags & EBoundaryFlags::OUT_OF_VERTICAL_BOUNDS) == 0)
 	{
-	    addImpulse(FVector());
+	    addImpulse(FVector(0,0,0));
 	}
 
 	boundaryFlags |= EBoundaryFlags::OUT_OF_VERTICAL_BOUNDS;
@@ -31,7 +31,7 @@ void ABall::Tick( float DeltaTime )
     {
 	if ((boundaryFlags & EBoundaryFlags::OUT_OF_HORIZONTAL_BOUNDS) == 0)
 	{
-	    addImpulse(FVector());
+	    addImpulse(FVector(0,0,0));
 	}
 
 	boundaryFlags |= EBoundaryFlags::OUT_OF_HORIZONTAL_BOUNDS;

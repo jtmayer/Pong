@@ -654,6 +654,7 @@ HEADERS += \
 	"$$unrealRootPath/Engine/Source/Developer/StandaloneRenderer/Public/IOS/SlateOpenGLESView.h" \
 	"$$unrealRootPath/Engine/Source/Developer/SuperSearch/Private/SSuperSearch.h" \
 	"$$unrealRootPath/Engine/Source/Developer/SuperSearch/Private/SuperSearchPrivatePCH.h" \
+	"$$unrealRootPath/Engine/Source/Developer/SuperSearch/Private/SuperSearchSettings.h" \
 	"$$unrealRootPath/Engine/Source/Developer/SuperSearch/Public/SuperSearchModule.h" \
 	"$$unrealRootPath/Engine/Source/Developer/TargetDeviceServices/Classes/TargetDeviceServiceMessages.h" \
 	"$$unrealRootPath/Engine/Source/Developer/TargetDeviceServices/Private/TargetDeviceProxy.h" \
@@ -5391,6 +5392,7 @@ HEADERS += \
 	"$$unrealRootPath/Engine/Source/Runtime/HeadMountedDisplay/Public/IMotionController.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/HeadMountedDisplay/Public/IStereoLayers.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/HeadMountedDisplay/Public/MotionControllerComponent.h" \
+	"$$unrealRootPath/Engine/Source/Runtime/HeadMountedDisplay/Public/VRNotificationsComponent.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/IOS/IOSAudio/Public/IOSAudioDevice.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/IOS/IOSRuntimeSettings/Classes/IOSRuntimeSettings.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/IOS/IOSRuntimeSettings/Private/IOSRuntimeSettingsPrivatePCH.h" \
@@ -5795,11 +5797,10 @@ HEADERS += \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/HttpPrivatePCH.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/HttpTests.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/NullHttp.h" \
+	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Apple/AppleHTTP.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Curl/CurlHttp.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Curl/CurlHttpManager.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/HTML5/HTML5HTTP.h" \
-	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/IOS/IOSHTTP.h" \
-	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Mac/MacHTTP.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Private/Windows/HttpWinInet.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/Http.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/HttpManager.h" \
@@ -5809,14 +5810,13 @@ HEADERS += \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/HttpRetrySystem.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/PlatformHttp.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/Android/AndroidHttp.h" \
+	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/Apple/ApplePlatformHttp.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/GenericPlatform/GenericPlatformHttp.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/HTML5/HTML5PlatformHttp.h" \
-	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/IOS/IOSPlatformHttp.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/Interfaces/IHttpBase.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/Interfaces/IHttpRequest.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/Interfaces/IHttpResponse.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/Linux/LinuxPlatformHttp.h" \
-	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/Mac/MacPlatformHttp.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/WinRT/WinRTHttp.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/HTTP/Public/Windows/WindowsPlatformHttp.h" \
 	"$$unrealRootPath/Engine/Source/Runtime/Online/Hotfix/Classes/OnlineHotfixManager.h" \
@@ -7066,9 +7066,6 @@ HEADERS += \
 	"$$unrealRootPath/Engine/Plugins/Developer/PerforceSourceControl/Source/PerforceSourceControl/Private/PerforceSourceControlSettings.h" \
 	"$$unrealRootPath/Engine/Plugins/Developer/PerforceSourceControl/Source/PerforceSourceControl/Private/PerforceSourceControlState.h" \
 	"$$unrealRootPath/Engine/Plugins/Developer/PerforceSourceControl/Source/PerforceSourceControl/Private/SPerforceSourceControlSettings.h" \
-	"$$unrealRootPath/Engine/Plugins/Developer/SensibleEditorSourceCodeAccess/Source/SensibleEditorSourceCodeAccess/Private/SensibleEditorSourceCodeAccessModule.h" \
-	"$$unrealRootPath/Engine/Plugins/Developer/SensibleEditorSourceCodeAccess/Source/SensibleEditorSourceCodeAccess/Private/SensibleEditorSourceCodeAccessPrivatePCH.h" \
-	"$$unrealRootPath/Engine/Plugins/Developer/SensibleEditorSourceCodeAccess/Source/SensibleEditorSourceCodeAccess/Private/SensibleEditorSourceCodeAccessor.h" \
 	"$$unrealRootPath/Engine/Plugins/Developer/SubversionSourceControl/Source/SubversionSourceControl/Private/ISubversionSourceControlWorker.h" \
 	"$$unrealRootPath/Engine/Plugins/Developer/SubversionSourceControl/Source/SubversionSourceControl/Private/SSubversionSourceControlSettings.h" \
 	"$$unrealRootPath/Engine/Plugins/Developer/SubversionSourceControl/Source/SubversionSourceControl/Private/SubversionSourceControlCommand.h" \
@@ -7381,17 +7378,41 @@ HEADERS += \
 	"$$unrealRootPath/Engine/Plugins/Runtime/IOSDeviceProfileSelector/Source/IOSDeviceProfileSelector/Private/IOSDeviceProfileSelectorModule.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/IOSDeviceProfileSelector/Source/IOSDeviceProfileSelector/Private/IOSDeviceProfileSelectorPrivatePCH.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/IOSDeviceProfileSelector/Source/IOSDeviceProfileSelector/Public/IOSDeviceProfileSelector.h" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Private/LeapMotionControllerPrivatePCH.h" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Public/LeapMotionBoneActor.h" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Public/LeapMotionControllerActor.h" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Public/LeapMotionControllerComponent.h" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Public/LeapMotionControllerPlugin.h" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Public/LeapMotionDevice.h" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Public/LeapMotionFunctionLibrary.h" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Public/LeapMotionHandActor.h" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Public/LeapMotionImageComponent.h" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Public/LeapMotionTypes.h" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/Public/Leap_NoPI.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/FLeapMotion.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapInterfaceUtility.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Private/LeapMotionPrivatePCH.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/ILeapMotion.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapArm.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapBaseObject.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapBone.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapCircleGesture.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapController.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapEnums.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapEventInterface.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapFinger.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapFingerList.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapForwardDeclaration.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapFrame.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapGesture.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapGestureList.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapHand.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapHandList.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapImage.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapImageList.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapInteractionBox.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapKeyTapGesture.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapMotionPublicPCH.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapPointable.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapPointableList.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapScreenTapGesture.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapSwipeGesture.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapTool.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/LeapToolList.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/Leap_NoPI.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/AnimBody/AnimBody.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/AnimBody/AnimBone.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/AnimBody/AnimFinger.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/Public/AnimBody/AnimHand.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/LinuxDeviceProfileSelector/Source/LinuxDeviceProfileSelector/Private/LinuxDeviceProfileSelectorModule.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/LinuxDeviceProfileSelector/Source/LinuxDeviceProfileSelector/Private/LinuxDeviceProfileSelectorPrivatePCH.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/LinuxDeviceProfileSelector/Source/LinuxDeviceProfileSelector/Public/LinuxDeviceProfileSelector.h" \
@@ -7413,9 +7434,11 @@ HEADERS += \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusLibrary/Source/OculusLibrary/Public/IOculusLibraryPlugin.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusLibrary/Source/OculusLibrary/Public/OculusFunctionLibrary.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/HMDPrivatePCH.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftCommon.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftHMD.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftLayers.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftMeshAssets.h" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Private/OculusRiftSplash.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusRift/Source/OculusRift/Public/IOculusRiftPlugin.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/PacketHandlers/CompressionComponents/Oodle/Source/OodleHandlerComponent/Classes/OodleTrainerCommandlet.h" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/PacketHandlers/CompressionComponents/Oodle/Source/OodleHandlerComponent/Private/OodleHandlerComponentPCH.h" \
@@ -7489,5 +7512,7 @@ HEADERS += \
 	"$$PongRootPath/Source/Pong/PongGameMode.h" \
 	"$$PongRootPath/Source/Pong/Private/Ball.h" \
 	"$$PongRootPath/Source/Pong/Public/PongObject.h" \
+	"$$PongRootPath/Source/Pong/Public/PongObjectContact.h" \
+	"$$PongRootPath/Source/Pong/Public/Window.h" \
  
 

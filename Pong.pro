@@ -8,7 +8,7 @@ CONFIG -= qt
 
 TARGET = UE4 
 
-unrealRootPath=/home/jonathan/UnrealEngine
+unrealRootPath=/media/jonathan/76a8d15e-6c88-4341-8703-c31f139da0b5/home/jonathan/UnrealEngine
 PongRootPath=/home/jonathan/Documents/Unreal Projects/Pong
 
 gameProjectFile=/home/jonathan/Documents/Unreal Projects/Pong/Pong.uproject

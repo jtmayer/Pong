@@ -7,7 +7,7 @@ void APongObject::integrate(float deltaTime)
 {
     if (netForce != prevNetForce ||
 	velocity != prevVelocity ||
-	netImpulse != FVector())
+	netImpulse != FVector(0,0,0))
     {
 	position += (((prevVelocity + (netImpulse * inverseMass)) * time) +
 		     (0.5 * prevNetForce * inverseMass * time * time));
@@ -15,12 +15,12 @@ void APongObject::integrate(float deltaTime)
 	if (velocity == prevVelocity)
 	{
 	    velocity = (prevVelocity +
-			prevNetForce * inverseMass * time * damping +
+			prevNetForce * inverseMass * time +
 			netImpulse * inverseMass);
 	}
 	
 	time = 0;
-	netImpulse = FVector();
+	netImpulse = FVector(0,0,0);
     }
 
     time += deltaTime;
@@ -32,7 +32,7 @@ void APongObject::integrate(float deltaTime)
     prevVelocity = velocity;
     prevNetForce = netForce;
 
-    netForce = FVector();
+    netForce = FVector(0,0,0);
 }
 
 // Sets default values
@@ -44,17 +44,16 @@ APongObject::APongObject()
 
     time = 0;
     inverseMass = 0;
-    damping = 0.99;
 
-    prevVelocity = FVector();
-    velocity = FVector();
+    prevVelocity = FVector(0,0,0);
+    velocity = FVector(0,0,0);
 
-    prevNetForce = FVector();
-    netForce = FVector();
+    prevNetForce = FVector(0,0,0);
+    netForce = FVector(0,0,0);
 
-    netImpulse = FVector();
+    netImpulse = FVector(0,0,0);
 
-    Sprite = CreateDefaultSubobject<UPaperFlipbookComponent>(TEXT("Sprite"));
+    sprite = CreateDefaultSubobject<UPaperFlipbookComponent>(TEXT("Sprite"));
 }
 
 // Called when the game starts or when spawned
@@ -77,6 +76,18 @@ void APongObject::SetupPlayerInputComponent(class UInputComponent* InputComponen
     Super::SetupPlayerInputComponent(InputComponent);
 }
 
+float APongObject::getInverseMass() const
+{
+    return inverseMass;
+}
+
+FVector APongObject::getVelocity() const
+{
+    return (prevVelocity +
+	    (prevNetForce * inverseMass * time) +
+	    (netImpulse * inverseMass));
+}
+
 void APongObject::addForce(const FVector& force)
 {
     netForce += force;
@@ -86,3 +97,4 @@ void APongObject::addImpulse(const FVector& impulse)
 {
     netImpulse += impulse;
 }
+

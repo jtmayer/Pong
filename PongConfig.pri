@@ -408,7 +408,6 @@ OTHER_FILES += \
 	"$$unrealRootPath/Engine/Plugins/Developer/NullSourceCodeAccess/Source/NullSourceCodeAccess/NullSourceCodeAccess.Build.cs" \
 	"$$unrealRootPath/Engine/Plugins/Developer/OneSkyLocalizationService/Source/OneSkyLocalizationService/OneSkyLocalizationService.Build.cs" \
 	"$$unrealRootPath/Engine/Plugins/Developer/PerforceSourceControl/Source/PerforceSourceControl/PerforceSourceControl.Build.cs" \
-	"$$unrealRootPath/Engine/Plugins/Developer/SensibleEditorSourceCodeAccess/Source/SensibleEditorSourceCodeAccess/SensibleEditorSourceCodeAccess.Build.cs" \
 	"$$unrealRootPath/Engine/Plugins/Developer/SubversionSourceControl/Source/SubversionSourceControl/SubversionSourceControl.Build.cs" \
 	"$$unrealRootPath/Engine/Plugins/Developer/UObjectPlugin/Source/UObjectPlugin/UObjectPlugin.Build.cs" \
 	"$$unrealRootPath/Engine/Plugins/Developer/VisualStudioSourceCodeAccess/Source/VisualStudioSourceCodeAccess/VisualStudioSourceCodeAccess.Build.cs" \
@@ -457,7 +456,7 @@ OTHER_FILES += \
 	"$$unrealRootPath/Engine/Plugins/Runtime/ExampleDeviceProfileSelector/Source/ExampleDeviceProfileSelector/ExampleDeviceProfileSelector.Build.cs" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/GearVR/Source/GearVR/GearVR.Build.cs" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/IOSDeviceProfileSelector/Source/IOSDeviceProfileSelector/IOSDeviceProfileSelector.Build.cs" \
-	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotionController/Source/LeapMotionController/LeapMotionController.Build.cs" \
+	"$$unrealRootPath/Engine/Plugins/Runtime/LeapMotion/Source/LeapMotion/LeapMotion.Build.cs" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/LinuxDeviceProfileSelector/Source/LinuxDeviceProfileSelector/LinuxDeviceProfileSelector.Build.cs" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/LiveEditorListenServer/Source/LiveEditorListenServer/LiveEditorListenServer.Build.cs" \
 	"$$unrealRootPath/Engine/Plugins/Runtime/OculusAudio/Source/OculusAudio/OculusAudio.Build.cs" \
